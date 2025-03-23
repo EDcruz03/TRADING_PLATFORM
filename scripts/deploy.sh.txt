@@ -1,0 +1,25 @@
+#!/bin/bash
+# Deployment script for trading platform
+
+echo "Starting deployment..."
+
+# Step 1: Navigate to project directory
+cd /path/to/your/project || {
+  echo "Error: Could not find the project directory."
+  exit 1
+}
+
+# Step 2: Add all changes to Git
+git add .
+
+# Step 3: Commit changes with a message
+read -p "Enter commit message: " commit_message
+git commit -m "${commit_message}"
+
+# Step 4: Push changes to the remote repository
+git push origin main || {
+  echo "Error: Unable to push changes. Check your remote settings."
+  exit 1
+}
+
+echo "✅ Deployment complete!"
